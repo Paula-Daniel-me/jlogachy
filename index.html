@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме - Главный бухгалтер</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #1a252f;
+            --gradient-start: #3498db;
+            --gradient-end: #2c3e50;
+            --card-bg: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 0 15px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Заголовок с градиентом и эффектом прозрачности */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB2aWV3Qm94PSIwIDAgMTAwMCAxMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjA1KSIvPjxyZWN0IHg9IjUwIiB5PSI1MCIgd2lkdGg9IjEwIiBoZWlnaHQ9IjEwIiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDcpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            letter-spacing: 1px;
+        }
+
+        .position {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Секции */
+        .section {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: var(--transition);
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--secondary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        /* Опыт работы */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .experience-card {
+            background: linear-gradient(145deg, #ffffff, #f5f7fa);
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 5px solid var(--secondary-color);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--secondary-color), var(--accent-color));
+        }
+
+        .company {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .period {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: inline-block;
+            background-color: rgba(231, 76, 60, 0.1);
+            padding: 3px 10px;
+            border-radius: 20px;
+        }
+
+        .duration {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .role {
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .responsibilities {
+            list-style-type: none;
+            margin-top: 15px;
+        }
+
+        .responsibilities li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .responsibilities li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* Кейсы */
+        .case-studies {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .case-card {
+            background: linear-gradient(145deg, #f8f9fa, #ffffff);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #eaeaea;
+            transition: var(--transition);
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary-color);
+        }
+
+        .case-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .case-title i {
+            color: var(--accent-color);
+        }
+
+        .case-content {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Навыки - теги */
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(to right, var(--secondary-color), #2980b9);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            cursor: default;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .skill-tag i {
+            font-size: 0.9rem;
+        }
+
+        /* Образование */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .education-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            border-top: 4px solid var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .education-year {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .education-institution {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .education-degree {
+            color: #555;
+        }
+
+        /* Дополнительная информация */
+        .additional-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .info-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #eaeaea;
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            border-color: var(--secondary-color);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .recommendations {
+            list-style-type: none;
+        }
+
+        .recommendations li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eaeaea;
+        }
+
+        .recommendations li:last-child {
+            border-bottom: none;
+        }
+
+        .recommender {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .recommender-position {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .position {
+                font-size: 1.5rem;
+            }
+            
+            .experience-grid,
+            .case-studies,
+            .education-grid,
+            .additional-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 30px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+
+        /* Акцентные элементы */
+        .accent {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .highlight {
+            background-color: rgba(52, 152, 219, 0.1);
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--secondary-color), transparent);
+            margin: 30px 0;
+        }
+
+        /* Анимации */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .experience-card, .case-card, .education-card, .info-card {
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .experience-card:nth-child(1) { animation-delay: 0.1s; }
+        .experience-card:nth-child(2) { animation-delay: 0.2s; }
+        .experience-card:nth-child(3) { animation-delay: 0.3s; }
+        .experience-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Заголовок с градиентом -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="main-title">Резюме</h1>
+                <h2 class="position">Главный бухгалтер</h2>
+                <p class="subtitle">Опытный финансовый специалист с более чем 20-летним опытом в бухгалтерском учете, налоговом планировании и международных финансовых операциях</p>
+            </div>
+        </header>
+
+        <!-- Опыт работы -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> Опыт работы</h2>
+            <div class="experience-grid">
+                <!-- IT компания -->
+                <div class="experience-card">
+                    <div class="period">Апрель 2018 — Декабрь 2023</div>
+                    <div class="duration">5 лет 9 месяцев</div>
+                    <h3 class="company">IT company</h3>
+                    <p class="location">Москва, Информационные технологии, системная интеграция, интернет</p>
+                    <p class="role">Главный бухгалтер</p>
+                    <ul class="responsibilities">
+                        <li>Самостоятельное ведение бухгалтерского и налогового учетов на ОСНО в IT-компании от первичной документации до сдачи баланса и всех налоговых деклараций</li>
+                        <li>Расчеты с контрагентами: контроль дебиторской и кредиторской задолженности, проведение сверок, работа с договорами</li>
+                        <li>Учет активов и отчетность: Ведение учета ОС, НМА, ТМЦ, проведение инвентаризаций</li>
+                        <li>Опыт формирования отчетности (БУ, НУ, Росстат, фонды) и подготовки к проверкам (ФНС, аудит)</li>
+                        <li>Расчет заработной платы и отчетность: Начисление заработной платы, налогов и взносов. Сдача 6-НДФЛ, РСВ, СЗВ, 4-ФСС</li>
+                        <li>Процессы и автоматизация: Настройка и контроль ключевых процессов, синхронизация 1С:ЗУП и 1С:Бухгалтерия</li>
+                    </ul>
+                </div>
+
+                <!-- Legal company (административный директор) -->
+                <div class="experience-card">
+                    <div class="period">Октябрь 2017 — Декабрь 2017</div>
+                    <div class="duration">3 месяца</div>
+                    <h3 class="company">Legal company</h3>
+                    <p class="location">Москва, Услуги для бизнеса</p>
+                    <p class="role">Административный директор</p>
+                    <ul class="responsibilities">
+                        <li>Подготовка данных для расчета ФОТ и кадровый документооборот</li>
+                        <li>Контроль служебных авансов сотрудников, обеспечение их правильного документального оформления</li>
+                        <li>Поддержка клиентских и финансовых процессов: работа с клиентскими договорами, координация вопросов биллинга</li>
+                        <li>Участие в оптимизации процессов: внедрение новой системы учета рабочего времени</li>
+                    </ul>
+                </div>
+
+                <!-- Pet Food company -->
+                <div class="experience-card">
+                    <div class="period">Май 2017 — Октябрь 2017</div>
+                    <div class="duration">6 месяцев</div>
+                    <h3 class="company">Pet Food company</h3>
+                    <p class="location">Москва, Продукты питания</p>
+                    <p class="role">Бухгалтер</p>
+                    <ul class="responsibilities">
+                        <li>Контроль дебиторской и кредиторской задолженности: ежедневный мониторинг и выверка операций по расчетам с контрагентами</li>
+                        <li>Регистрация счетов поставщиков (включая таможенные декларации — ГТД) в SAP и контроль за сроками их оплаты</li>
+                        <li>Учет и контроль операционных расходов, обработка авансовых отчетов сотрудников</li>
+                        <li>Участие в процессах закрытия месяца и отчетности: ежемесячное закрытие счетов, подготовка журналов проводок</li>
+                        <li>Валютный контроль и банковские операции: Управление операциями банковского валютного контроля и отчетностью</li>
+                    </ul>
+                </div>
+
+                <!-- Legal company (старший бухгалтер) -->
+                <div class="experience-card">
+                    <div class="period">Сентябрь 1997 — Июнь 2016</div>
+                    <div class="duration">18 лет 10 месяцев</div>
+                    <h3 class="company">Legal company</h3>
+                    <p class="location">Москва, Услуги для бизнеса</p>
+                    <p class="role">Старший бухгалтер по реализации, Кредитный контроллер</p>
+                    <ul class="responsibilities">
+                        <li>Управление реализацией и дебиторской задолженностью</li>
+                        <li>Международные расчеты и валютный контроль: координация платежей с европейскими банками и зарубежными офисами</li>
+                        <li>Оформление валютных операций, контроль поступления выручки, подготовка всей необходимой документации</li>
+                        <li>Работа с финансовой документацией на английском языке</li>
+                        <li>Международная экспертиза. Участие в кросс-граничных проектах фирмы. В 2011 году — секондмент в офисе компании в Стокгольме</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Кейсы -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-chart-line"></i> Ключевые достижения</h2>
+            <div class="case-studies">
+                <div class="case-card">
+                    <h3 class="case-title"><i class="fas fa-trophy"></i> Результат в IT компании</h3>
+                    <p class="case-content">За 5 лет обеспечила работу участка без штрафов. Успешный опыт возврата средств компании в результате урегулирования споров с ФНС и ФСС.</p>
+                </div>
+                
+                <div class="case-card">
+                    <h3 class="case-title"><i class="fas fa-sync-alt"></i> Автоматизация процессов</h3>
+                    <p class="case-content">Настройка и контроль ключевых процессов, синхронизация 1С:ЗУП и 1С:Бухгалтерия. Переход с 1С 7 на 1С 8. Владение Excel, системами ЭДО.</p>
+                </div>
+                
+                <div class="case-card">
+                    <h3 class="case-title"><i class="fas fa-globe"></i> Международный опыт</h3>
+                    <p class="case-content">Опыт работы в международных компаниях с использованием английского языка. В 2011 году — секондмент в офисе компании в Стокгольме.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Навыки в виде тегов -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-cogs"></i> Навыки</h2>
+            <div class="skills-tags">
+                <div class="skill-tag"><i class="fas fa-calculator"></i> Бухгалтерский учет</div>
+                <div class="skill-tag"><i class="fas fa-file-invoice-dollar"></i> Налоговый учет</div>
+                <div class="skill-tag"><i class="fas fa-balance-scale"></i> ВЭД</div>
+                <div class="skill-tag"><i class="fas fa-landmark"></i> Валютный контроль</div>
+                <div class="skill-tag"><i class="fas fa-chart-bar"></i> Составление отчетности</div>
+                <div class="skill-tag"><i class="fas fa-search"></i> Прохождение налоговых проверок</div>
+                <div class="skill-tag"><i class="fas fa-code"></i> 1С: Предприятие 8</div>
+                <div class="skill-tag"><i class="fas fa-database"></i> 1С: Бухгалтерия</div>
+                <div class="skill-tag"><i class="fas fa-users-cog"></i> 1С: ЗУП</div>
+                <div class="skill-tag"><i class="fas fa-file-contract"></i> Документооборот</div>
+                <div class="skill-tag"><i class="fas fa-university"></i> Работа с банками</div>
+                <div class="skill-tag"><i class="fas fa-gavel"></i> Консультант плюс</div>
+                <div class="skill-tag"><i class="fas fa-chart-pie"></i> Управленческая отчетность</div>
+                <div class="skill-tag"><i class="fas fa-language"></i> Английский язык C2</div>
+                <div class="skill-tag"><i class="fas fa-handshake"></i> Деловая переписка</div>
+                <div class="skill-tag"><i class="fas fa-file-signature"></i> Заключение договоров</div>
+            </div>
+        </section>
+
+        <!-- Образование -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Образование</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="education-year">2003</div>
+                    <h3 class="education-institution">Государственный университет - Высшая Школа Экономики</h3>
+                    <p class="education-degree">Бух.учет и аудит, диплом об окончании</p>
+                </div>
+                
+                <div class="education-card">
+                    <div class="education-year">1996</div>
+                    <h3 class="education-institution">Московский государственный лингвистический университет</h3>
+                    <p class="education-degree">Лингвист, диплом с отличием</p>
+                </div>
+                
+                <div class="education-card">
+                    <div class="education-year">2022</div>
+                    <h3 class="education-institution">Палата налоговых консультантов России</h3>
+                    <p class="education-degree">Профессиональный налоговый консультант</p>
+                </div>
+                
+                <div class="education-card">
+                    <div class="education-year">2021</div>
+                    <h3 class="education-institution">Институт профессиональных бухгалтеров России</h3>
+                    <p class="education-degree">Профессиональный бухгалтер, действительный член НП "ИПБ России"</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Дополнительная информация -->
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-info-circle"></i> Дополнительная информация</h2>
+            <div class="additional-info">
+                <div class="info-card">
+                    <h3><i class="fas fa-comments"></i> Обо мне</h3>
+                    <p>Практический опыт ведения бухгалтерского и налогового учета на ОСНО, включая международные операции.</p>
+                    <p>Эксперт в 1С 8.3 (Бухгалтерия, ЗУП), опыт с SAP. Полный цикл отчетности (ИФНС, ПФР, ФСС, Росстат).</p>
+                    <p>Английский язык — свободный (опыт работы в международных компаниях).</p>
+                    <p>В работе ценю точность и результат. Имею опыт работы в режиме многозадачности, нахожу решения для нестандартных задач. Готова разъяснять сложные вопросы коллегам.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3><i class="fas fa-thumbs-up"></i> Рекомендации</h3>
+                    <ul class="recommendations">
+                        <li>
+                            <div class="recommender">Mikael Bott</div>
+                            <div class="recommender-position">Compliance, IT company</div>
+                        </li>
+                        <li>
+                            <div class="recommender">Olga Ivanova</div>
+                            <div class="recommender-position">General Director, IT company</div>
+                        </li>
+                        <li>
+                            <div class="recommender">Stefan Hills</div>
+                            <div class="recommender-position">CEO, IT company</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <h3><i class="fas fa-car"></i> Опыт вождения</h3>
+                    <p>Имеется собственный автомобиль</p>
+                    <p>Права категории B</p>
+                    <h3 style="margin-top: 20px;"><i class="fas fa-language"></i> Знание языков</h3>
+                    <p><span class="highlight">Русский</span> — Родной</p>
+                    <p><span class="highlight">Английский</span> — C2 — В совершенстве</p>
+                    <p><span class="highlight">Испанский</span> — A1 — Начальный</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Резюме главного бухгалтера &copy; 2023 | Современный веб-дизайн</p>
+        </footer>
+    </div>
+
+    <script>
+        // Простая анимация при скролле
+        document.addEventListener('DOMContentLoaded', function() {
+            // Анимация для карточек при прокрутке
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Наблюдаем за всеми карточками
+            document.querySelectorAll('.experience-card, .case-card, .education-card, .info-card').forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Добавляем эффект при наведении на теги навыков
+            const skillTags = document.querySelectorAll('.skill-tag');
+            skillTags.forEach(tag => {
+                tag.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px) scale(1.05)';
+                });
+                
+                tag.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
